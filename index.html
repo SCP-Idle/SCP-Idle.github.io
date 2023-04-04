@@ -3,76 +3,21 @@
   <head>
     
     <title>SCP Idle</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="main.js"></script>
     
   </head>
   <body>
 
-    <p>Name: <span id="charName">Dr.Elias Shaw</span></p>
-    <p>Title: <span id="charTitle">Researcher</span></p>
-    <p>Class: <span id="charClass">C</span></p>
-    <p>Clearance: <span id="charClearance">2</span></p>
-    <p>Data: <span id="scoreData">0</span></p>
+    <p>Name: <span id="Name">Dr.Elias Shaw</span></p>
+    <p>Title: <span id="Title">Researcher</span></p>
+    <p>Class: <span id="Class">C</span></p>
+    <p>Clearance: <span id="Clearance">2</span></p>
+    <p>Data: <span id="Data">0</span></p>
     
     <img src="img/document_250x250.png" onclick="addToScore("Data", 1)"></img>
   
     <button>Request D-Class [<span id="bldDclassCost">15</span> Research] | <span id="bldDclassAmount">0</span>
 
-    <script>
-      var charName = "Dr. Elias Shaw";
-      var charTitle = "Researcher";
-      var charClass = "C";
-      var charClearance = 2;
-      
-      var scoreData = 0;
-      
-      var bldDclassAmount = 0;
-      var bldDclassCost = 15;
-      
-      updateCharacter();
-      updateBuildings();
-      updateScores();
-      
-      
-      function updateCharacter() {
-        document.getElementById("charName").innerHTML = charName;
-        document.getElementById("charTitle").innerHTML = charTitle;
-        document.getElementById("charClass").innerHTML = charClass;
-        document.getElementById("charClearance").innerHTML = charClearance;
-      }
-      
-      function updateBuildings() {
-        document.getElementById("bldDclassAmount").innerHTML = bldDclassAmount;
-        document.getElementById("bldDclassCost").innerHTML = bldDclassCost;
-      }
-      
-      function updateScores() {
-        document.getElementById("scoreData").innerHTML = scoreData;
-      }
-      
-      function addToScore(score, amount) {
-        if (score == "Data") {
-          scoreData += amount;
-        }
-        updateScores();
-      }
-      
-      function subtractFromScore(score, amount) {
-        if (score == "Data") {
-          scoreData -= amount;
-        }
-        updateScores();
-      }
-      
-      function buyBuidling(building) {
-        if (building == "Dclass") {
-          if (scoreData >= bldDclassCost) {
-            subtractFromScore("Data", bldDclassCost);
-            bldDclassAmount += 1;
-          }
-        }
-        updateBuildings();
-      }
-      
-    </script>
   </body>
 </html>
