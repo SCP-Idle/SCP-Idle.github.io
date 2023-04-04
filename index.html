@@ -12,18 +12,26 @@
     <p>Class: <span id="charClass">C</span></p>
     <p>Clearance: <span id="charClearance">2</span></p>
     <p>Data: <span id="scoreData">0</span></p>
-    <img src="img/document_250x250.png" onclick="addToScoreData(1)"></img>
+    
+    <img src="img/document_250x250.png" onclick="addToScore("Data", 1)"></img>
+  
+    <button>Request D-Class [<span id="bldDclassCost">15</span> Research] | <span id="bldDclassAmount">0</span>
 
     <script>
       var charName = "Dr. Elias Shaw";
       var charTitle = "Researcher";
       var charClass = "C";
       var charClearance = 2;
+      
       var scoreData = 0;
       
+      var bldDclassAmount = 0;
+      var bldDclassCost = 15;
+      
       updateCharacter();
-      addToScoreData(1000);
+      updateBuildings();
       updateScores();
+      
       
       function updateCharacter() {
         document.getElementById("charName").innerHTML = charName;
@@ -32,14 +40,39 @@
         document.getElementById("charClearance").innerHTML = charClearance;
       }
       
+      function updateBuildings() {
+        document.getElementById("bldDclassAmount").innerHTML = bldDclassAmount;
+        document.getElementById("bldDclassCost").innerHTML = bldDclassCost;
+      }
+      
       function updateScores() {
         document.getElementById("scoreData").innerHTML = scoreData;
       }
       
-      function addToScoreData(amount) {
-        scoreData += amount;
+      function addToScore(score, amount) {
+        if (score = "Data") {
+          scoreData += amount;
+        }
         updateScores();
       }
+      
+      function subtractFromScore(score, amount) {
+        if (score = "Data") {
+          scoreData -= amount;
+        }
+        updateScores();
+      }
+      
+      function buyBuidling(building) {
+        if (building = "Dclass") {
+          if (scoreData >= bldDclassCost) {
+            subtractFromScore("Data", bldDclassCost);
+            bldDclassAmount += 1;
+          }
+        }
+        updateBuildings();
+      }
+      
     </script>
   </body>
 </html>
