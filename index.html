@@ -7,16 +7,18 @@
   </head>
   <body>
 
-    <p>Name: <span id="charName">Elias Shaw</span></p>
+    <p>Name: <span id="charName">Dr.Elias Shaw</span></p>
+    <p>Title: <span id="charTitle">Researcher</span></p>
     <p>Class: <span id="charClass">C</span></p>
     <p>Clearance: <span id="charClearance">2</span></p>
     <p>Data: <span id="scoreData">0</span></p>
-    <img src="img/document_250x250.png" onclick=""></img>
+    <img src="img/document_250x250.png" onclick="addToScoreData(1)"></img>
 
     <script>
-      var charName = "John Doe";
-      var charClass = "A";
-      var charClearance = 5;
+      var charName = "Dr. Elias Shaw";
+      var charTitle = "Researcher";
+      var charClass = "C";
+      var charClearance = 2;
       var scoreData = 0;
       
       updateCharacter();
@@ -25,6 +27,7 @@
       
       function updateCharacter() {
         document.getElementById("charName").innerHTML = charName;
+        document.getElementById("charTitle").innerHTML = charTitle;
         document.getElementById("charClass").innerHTML = charClass;
         document.getElementById("charClearance").innerHTML = charClearance;
       }
