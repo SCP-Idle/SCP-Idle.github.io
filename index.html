@@ -7,9 +7,36 @@
   </head>
   <body>
 
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
-    <img src="img/document_500x500.png"></img>
+    <p>Name: <span id="charName">Elias Shaw</span></p>
+    <p>Class: <span id="charClass">C</span></p>
+    <p>Clearance: <span id="charClearance">2</span></p>
+    <p>Data: <span id="scoreData">0</span></p>
+    <img src="img/document_250x250.png" onclick=""></img>
 
+    <script>
+      var charName = "John Doe";
+      var charClass = "A";
+      var charClearance = 5;
+      var scoreData = 0;
+      
+      updateCharacter();
+      addToScoreData(1000);
+      updateScores();
+      
+      function updateCharacter() {
+        document.getElementById("charName").innerHTML = charName;
+        document.getElementById("charClass").innerHTML = charClass;
+        document.getElementById("charClearance").innerHTML = charClearance;
+      }
+      
+      function updateScores() {
+        document.getElementById("scoreData").innerHTML = scoreData;
+      }
+      
+      function addToScoreData(amount) {
+        scoreData += amount;
+        updateScores();
+      }
+    </script>
   </body>
 </html>
