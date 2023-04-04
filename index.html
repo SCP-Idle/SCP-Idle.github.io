@@ -50,21 +50,21 @@
       }
       
       function addToScore(score, amount) {
-        if (score = "Data") {
+        if (score == "Data") {
           scoreData += amount;
         }
         updateScores();
       }
       
       function subtractFromScore(score, amount) {
-        if (score = "Data") {
+        if (score == "Data") {
           scoreData -= amount;
         }
         updateScores();
       }
       
       function buyBuidling(building) {
-        if (building = "Dclass") {
+        if (building == "Dclass") {
           if (scoreData >= bldDclassCost) {
             subtractFromScore("Data", bldDclassCost);
             bldDclassAmount += 1;
