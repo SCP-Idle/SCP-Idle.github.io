@@ -1,8 +1,16 @@
+$(document).ready(function(){
+
+  updatePlayer();
+  updateScore();
+  updateBuildings();
+
+});
+
 const player = {
-  name: "Dr.Elias Shaw",
-  title: "Researcher",
-  class: "C",
-  clearance: 2
+  name: "Testeroni",
+  title: "MFT",
+  class: "A",
+  clearance: 5
 };
 
 const score = {
@@ -13,3 +21,9 @@ const dclass = {
   amount: 0,
   cost: 15
 };
+
+function updatePlayer() {
+  $("#Name").html(player.name);
+  $("#Title").html(player.title);
+  $("#Class").html(player.class);
+  $("#Clearance").html(player.clearance);
