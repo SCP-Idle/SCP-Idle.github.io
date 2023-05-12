@@ -10,15 +10,18 @@ $(document).ready(function() {
   var savedData = JSON.parse(localStorage.getItem("SCPIdleData"));
   if (savedData) {
     data = savedData.data;
+    $("#data").text(data);
     dataIdle = savedData.dataIdle;
     dataClick = savedData.dataClick;
     clickUpgrade1Cost = savedData.clickUpgrade1Cost;
+    $("#clickUpgrade1").text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
     idleUpgrade1Cost = savedData.idleUpgrade1Cost;
+    $("#idleUpgrade1").text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
   }
 
   function updateGame() {
     data += dataIdle;
-    $("#data").text(data.toFixed(1));
+    $("#data").text(data);
 
     if (data >= clickUpgrade1Cost) {
       $("#clickUpgrade1").prop("disabled", false);
@@ -50,7 +53,7 @@ $(document).ready(function() {
 
   $("#click").click(function() {
     data += dataClick;
-    $("#data").text(data.toFixed(1));
+    $("#data").text(data);
   });
 
   $("#clickUpgrade1").click(function() {
@@ -59,7 +62,7 @@ $(document).ready(function() {
       clickUpgrade1Cost *= 1.25;
       clickUpgrade1Cost = Math.round(clickUpgrade1Cost * 1.25)
       dataClick += 1;
-      $("#data").text(data.toFixed(1));
+      $("#data").text(data);
       $(this).text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
     }
   });
@@ -69,7 +72,7 @@ $(document).ready(function() {
       data -= idleUpgrade1Cost;
       idleUpgrade1Cost = Math.round(idleUpgrade1Cost * 1.5)
       dataIdle += 1;
-      $("#data").text(data.toFixed(1));
+      $("#data").text(data);
       $(this).text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
     }
   });
