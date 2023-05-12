@@ -33,7 +33,7 @@ $(document).ready(function() {
     if (data >= clickUpgrade1Cost) {
       data -= clickUpgrade1Cost;
       clickUpgrade1Cost *= 1.25;
-      clickUpgrade1Cost = Math.round((clickUpgrade1Cost * 1.25) * 10) / 10
+      clickUpgrade1Cost = Math.round(clickUpgrade1Cost * 1.25)
       dataClick += 1;
       $("#data").text(data.toFixed(1));
       $(this).text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
@@ -43,7 +43,7 @@ $(document).ready(function() {
   $("#idleUpgrade1").click(function() {
     if (data >= idleUpgrade1Cost) {
       data -= idleUpgrade1Cost;
-      idleUpgrade1Cost = Math.round((idleUpgrade1Cost * 1.5) * 10) / 10
+      idleUpgrade1Cost = Math.round(idleUpgrade1Cost * 1.5)
       dataIdle += 1;
       $("#data").text(data.toFixed(1));
       $(this).text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
