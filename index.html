@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    
+    <meta charset="UTF-8">
     <title>SCP Idle</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="main.js"></script>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="game.js"></script>
   </head>
   <body>
-
-    <p>Name: <span id="Name">Dr.Elias Shaw</span></p>
-    <p>Title: <span id="Title">Researcher</span></p>
-    <p>Class: <span id="Class">C</span></p>
-    <p>Clearance: <span id="Clearance">2</span></p>
-    <p>Data: <span id="Data">0</span></p>
-    
-    <img src="img/document_250x250.png" onclick="addToScore("Data", 1)"></img>
-  
-    <button>Request D-Class [<span id="bldDclassCost">15</span> Research] | <span id="bldDclassAmount">0</span>
-
+    <div id="resources">
+      <p>Data: <span id="data">0</span></p>
+    </div>
+    <div id="upgrades">
+      <button id="upgrade1">Upgrade 1 (Cost: 10)</button>
+    </div>
   </body>
 </html>
