@@ -5,7 +5,7 @@ $(document).ready(function() {
   var clickUpgrade1Cost = 10;
   var idleUpgrade1Cost = 10;
 
-  function dataIdle() {
+  function updateGame() {
     data += dataIdle;
     $("#data").text(data);
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
     }
   }
 
-  setInterval(dataIdle, 1000);
+  setInterval(updateGame, 1000);
 
   $("#click").click(function() {
     data += dataClick;
