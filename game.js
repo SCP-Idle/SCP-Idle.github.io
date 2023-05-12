@@ -1,9 +1,20 @@
 $(document).ready(function() {
+  // Define Game Data
   var data = 0;
   var dataIdle = 0;
   var dataClick = 1;
   var clickUpgrade1Cost = 10;
   var idleUpgrade1Cost = 10;
+  
+  // Load Saved Data
+  var savedData = JSON.parse(localStorage.getItem("SCPIdleData"));
+  if (savedData) {
+    data = savedData.data;
+    dataIdle = savedData.dataIdle;
+    dataClick = savedData.dataClick;
+    clickUpgrade1Cost = savedData.clickUpgrade1Cost;
+    idleUpgrade1Cost = savedData.idleUpgrade1Cost;
+  }
 
   function updateGame() {
     data += dataIdle;
@@ -21,8 +32,21 @@ $(document).ready(function() {
       $("#idleUpgrade1").prop("disabled", true);
     }
   }
+    
+  function saveData() {
+    var saveData = {
+      data: data,
+      dataIdle: dataIdle,
+      dataClick: dataClick,
+      clickUpgrade1Cost: clickUpgrade1Cost,
+      idleUpgrade1Cost: idleUpgrade1Cost
+    };
+    localStorage.setItem("SCPIdleData", JSON.stringify(saveData));
+  }
 
   setInterval(updateGame, 1000);
+  
+  setInterval(saveData, 60000);
 
   $("#click").click(function() {
     data += dataClick;
