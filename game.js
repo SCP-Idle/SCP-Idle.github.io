@@ -46,6 +46,11 @@ $(document).ready(function() {
     };
     localStorage.setItem("SCPIdleData", JSON.stringify(saveData));
   }
+  
+  function deleteSaveData() {
+    localStorage.removeItem("SCPIdleData");
+    alert("Save data deleted.");
+  }
 
   setInterval(updateGame, 1000);
   
@@ -76,4 +81,8 @@ $(document).ready(function() {
       $(this).text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
     }
   });
+  
+  $("#saveData").click(saveData);
+  
+  $("#resetData").click(deleteSaveData);
 });
