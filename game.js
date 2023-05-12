@@ -1,29 +1,51 @@
 $(document).ready(function() {
   var data = 0;
-  var upgrade1Cost = 10;
-  var upgrade1Value = 1;
+  var dataIdle = 0;
+  var dataClick = 1;
+  var clickUpgrade1Cost = 10;
+  var idleUpgrade1Cost = 10;
 
-  function update() {
-    data += upgrade1Value;
+  function dataIdle() {
+    data += dataIdle;
     $("#data").text(data);
 
-    if (data >= upgrade1Cost) {
-      $("#upgrade1").prop("disabled", false);
+    if (data >= clickUpgrade1Cost) {
+      $("#clickUpgrade1").prop("disabled", false);
+    } else {
+      $("#clickUpgrade1").prop("disabled", true);
+    }
+      
+    if (data >= idleUpgrade1Cost) {
+      $("#idleUpgrade1").prop("disabled", false);
+    } else {
+      $("#idleUpgrade1").prop("disabled", true);
     }
   }
 
-  setInterval(update, 1000);
+  setInterval(dataIdle, 1000);
 
   $("#click").click(function() {
-    data += 1;
+    data += dataClick;
     $("#data").text(data);
   });
 
-  $("#upgrade1").click(function() {
-    data -= upgrade1Cost;
-    upgrade1Cost *= 2;
-    upgrade1Value += 1;
-    $("#data").text(data);
-    $(this).text("Upgrade 1 (Cost: " + upgrade1Cost + ")");
+  $("#clickUpgrade1").click(function() {
+    if (data >= clickUpgrade1Cost) {
+      data -= clickUpgrade1Cost;
+      clickUpgrade1Cost *= 1.25;
+      dataClick += 1;
+      $("#data").text(data);
+      $(this).text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
+    }
+  });
+  
+  $("#idleUpgrade1").click(function() {
+    if (data >= idleUpgrade1Cost) {
+      data -= idleUpgrade1Cost;
+      idleUpgrade1Cost *= 1.5;
+      dataIdle += 1;
+      $("#data").text(data);
+      $(this).text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
+    }
   });
 });
