@@ -1,10 +1,6 @@
 $(document).ready(function() {
-  // Define Game Data
-  var data = 0;
-  var dataIdle = 0;
-  var dataClick = 1;
-  var clickUpgrade1Cost = 10;
-  var idleUpgrade1Cost = 10;
+  // Initial Game Setup
+  resetGame;
   
   // Load Saved Data
   var savedData = JSON.parse(localStorage.getItem("SCPIdleData"));
@@ -19,6 +15,19 @@ $(document).ready(function() {
     $("#idleUpgrade1").text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
   }
 
+  // Function for Resetting Game
+  function resetGame() {
+    var data = 0;
+    $("#data").text(data);
+    var dataIdle = 0;
+    var dataClick = 1;
+    var clickUpgrade1Cost = 10;
+    $("#clickUpgrade1").text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
+    var idleUpgrade1Cost = 10;
+    $("#idleUpgrade1").text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
+  }
+  
+  // Update Game
   function updateGame() {
     data += dataIdle;
     $("#data").text(data);
@@ -36,6 +45,7 @@ $(document).ready(function() {
     }
   }
     
+  // Function for Saving Data
   function saveData() {
     var saveData = {
       data: data,
@@ -47,9 +57,10 @@ $(document).ready(function() {
     localStorage.setItem("SCPIdleData", JSON.stringify(saveData));
   }
   
-  function deleteSaveData() {
+  function deleteData() {
     localStorage.removeItem("SCPIdleData");
     alert("Save data deleted.");
+    resetGame;
   }
 
   setInterval(updateGame, 1000);
@@ -84,5 +95,5 @@ $(document).ready(function() {
   
   $("#saveData").click(saveData);
   
-  $("#resetData").click(deleteSaveData);
+  $("#resetData").click(deleteData);
 });
