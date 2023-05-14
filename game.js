@@ -1,6 +1,23 @@
 $(document).ready(function() {
   // Initial Game Setup
+  var data = 0;
+  var dataIdle = 0;
+  var dataClick = 1;
+  var clickUpgrade1Cost = 10;
+  var idleUpgrade1Cost = 10;
   resetGame();
+  
+    // Function for Resetting Game
+  function resetGame() {
+    data = 0;
+    $("#data").text(data);
+    dataIdle = 0;
+    dataClick = 1;
+    clickUpgrade1Cost = 10;
+    $("#clickUpgrade1").text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
+    idleUpgrade1Cost = 10;
+    $("#idleUpgrade1").text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
+  }
   
   // Load Saved Data
   var savedData = JSON.parse(localStorage.getItem("SCPIdleData"));
@@ -12,18 +29,6 @@ $(document).ready(function() {
     clickUpgrade1Cost = savedData.clickUpgrade1Cost;
     $("#clickUpgrade1").text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
     idleUpgrade1Cost = savedData.idleUpgrade1Cost;
-    $("#idleUpgrade1").text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
-  }
-
-  // Function for Resetting Game
-  function resetGame() {
-    var data = 0;
-    $("#data").text(data);
-    var dataIdle = 0;
-    var dataClick = 1;
-    var clickUpgrade1Cost = 10;
-    $("#clickUpgrade1").text("Click Upgrade 1 (Cost: " + clickUpgrade1Cost + ")");
-    var idleUpgrade1Cost = 10;
     $("#idleUpgrade1").text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
   }
   
