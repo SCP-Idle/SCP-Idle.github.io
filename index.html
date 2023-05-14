@@ -10,17 +10,29 @@
   </head>
   <body>
     <div id="resources">
-      <p>Data: <span id="data">0</span></p>
+      <div class="resource-box">Data: <span id="data">0</span></div>
+      <div class="resource-box">Descriptions: <span id="desc">0</span></div>
+      <div class="resource-box">Containment Procedures: <span id="contproc">0</span></div>
+      <div class="resource-box">Safe: <span id="safe">0</span></div>
+      <div class="resource-box">Euclid: <span id="euclid">0</span></div>
+      <div class="resource-box">Keter: <span id="keter">0</span></div>
     </div>
-    <div id="buttons">
-      <button id="click">Click Me!</button>
+    <div id="main-content">
+      <div id="buttons">
+        <button id="getData">Gather Data</button>
+        <button id="getDesc">Write a Description</button>
+        <button id="getContProc">Formulate a Containment Procedure</button>
+        <button id="getSCP">Contain an SCP</button>
+      </div>
+      <div id="upgrades">
+        <button id="clickUpgrade1">Click Upgrade 1 (Cost: 10)</button>
+        <button id="hireResearchers">Idle Upgrade 1 (Cost: 10)</button>
+      </div>
     </div>
-    <div id="upgrades">
-      <button id="clickUpgrade1">Click Upgrade 1 (Cost: 10)</button>
-      <button id="idleUpgrade1">Idle Upgrade 1 (Cost: 10)</button>
-    </div>
-    <div id ="settings">
+    <div id="notifications"></div>
+    <div id="settings">
       <button id="saveData">Save Data</button>
       <button id="resetData">Reset Data</button>
+    </div>
   </body>
 </html>
