@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Initial Game Setup
-  resetGame;
+  resetGame();
   
   // Load Saved Data
   var savedData = JSON.parse(localStorage.getItem("SCPIdleData"));
