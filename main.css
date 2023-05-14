@@ -1,23 +1,76 @@
 /* Add box outline and responsive styles to divs */
-
-#resources, #buttons, #upgrades, #settings {
+#resources {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid black;
   padding: 10px;
-  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.resource-box {
+  margin-right: 10px;
+}
+
+#main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+#buttons {
+  width: 66%;
+  border: 1px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#upgrades {
+  width: 33%;
+  border: 1px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#notifications {
+  height: 100px;
+  border: 1px solid black;
+  margin-top: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#settings {
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 10px;
   box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {
-  #resources, #buttons, #upgrades, #settings {
+  #resources, #buttons, #upgrades, #notifications, #settings {
     width: 100%;
     margin-right: 0;
   }
 }
 
 @media screen and (min-width: 768px) {
-  #resources, #buttons, #upgrades, #settings {
-    width: calc(25% - 10px);
+  #resources {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #main-content {
+    width: calc(66.6667% - 10px);
     margin-right: 10px;
-    float: left;
+  }
+  
+  #notifications {
+    width: calc(33.3333% - 10px);
+    margin-left: 10px;
+  }
+  
+  #settings {
+    width: 100%;
   }
 }
