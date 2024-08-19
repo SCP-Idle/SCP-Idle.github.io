@@ -1,13 +1,10 @@
 $(document).ready(function() {
   // Initial Game Setup
-  var data = 0;
-  var dataIdle = 0;
-  var dataClick = 1;
-  var clickUpgrade1Cost = 10;
-  var idleUpgrade1Cost = 10;
-  resetGame();
+  var data = newResource("data", 0, 1, 1, 0, 1, 0)
+  var desc = newResource("desc", 0, 1, 1, 0, 1, 0, true, "data", 250)
+  var contProc = newResource("contProc", 0, 1, 1, 0, 1, 0, true, "desc", 100)
   
-    // Function for Resetting Game
+    // Game Setup
   function resetGame() {
     data = 0;
     $("#data").text(data);
@@ -97,8 +94,53 @@ $(document).ready(function() {
       $(this).text("Idle Upgrade 1 (Cost: " + idleUpgrade1Cost + ")");
     }
   });
-  
+
   $("#saveData").click(saveData);
   
   $("#resetData").click(deleteData);
+
+  function newResource(name, amount, baseClick, multiClick, baseIdle, multiIdle, multiBoth, hidden = false, hiddenResource = "data", hiddenAmount = 0) {
+    return {
+      // name: str, The resource's name
+      name: name,
+      // amount: int, The amount of the resource
+      amount: amount,
+      // baseClick: int, The base amount for manually harvesting
+      baseClick: baseClick,
+      // multiClick: int, The multiplier for manually harvesting
+      multiClick: multiClick,
+      // baseIdle: int, The base amount for idle harvesting
+      baseIdle: baseIdle,
+      // multiIdle: int, The multiplier for idle harvesting
+      multiIdle: multiIdle,
+      // multiBoth: int, A multiplier added to both the manual and idle multipliers
+      multiBoth: multiBoth,
+      // hidden: bool, optional, Whether the resource starts hidden
+      hidden: hidden,
+      // hiddenResource: str, optional, The resource used if it is hidden
+      hiddenResource: hiddenResource,
+      // hiddenAmount: int, optional, The amount of the resource to un-hide it
+      hiddenAmount: hiddenAmount
+    };
+  }
+
+    function newUpgrade(name, costResource, costAmount, purchased, effect, hidden = false, hiddenResource = "data", hiddenAmount = 0) {
+      return {
+        // name: str, The resource's name
+        name: name,
+        // costResource: str, The resource used to buy this upgrade
+        costResource: costResource,
+        // costAmount: int, The amount of the resourced use to buy this upgrade
+        costAmount: costAmount,
+        // purchased: bool, Whether the upgrade has been purchased
+        purchased: purchased,
+        // effect: function, What this upgrade does when purchased
+        effect: effect,
+        // hidden: bool, optional, Whether the upgrade starts hidden
+        hidden: hidden,
+        // hiddenResource: str, optional, The resource used if it is hidden
+        hiddenResource: hiddenResource,
+        // hiddenAmount: int, optional, The amount of the resource to un-hide it
+        hiddenAmount: hiddenAmount
+      };
 });
